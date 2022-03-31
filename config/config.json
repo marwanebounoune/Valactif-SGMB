@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "add-actif-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/addActif/AddActifWebPart.js",
+          "manifest": "./src/webparts/addActif/AddActifWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AddActifWebPartStrings": "lib/webparts/addActif/loc/{locale}.js"
+  }
+}
