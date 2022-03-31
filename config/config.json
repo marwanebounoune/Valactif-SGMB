@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "comparable-map-sgmb-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/comparableMapSgmb/ComparableMapSgmbWebPart.js",
+          "manifest": "./src/webparts/comparableMapSgmb/ComparableMapSgmbWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ComparableMapSgmbWebPartStrings": "lib/webparts/comparableMapSgmb/loc/{locale}.js"
+  }
+}

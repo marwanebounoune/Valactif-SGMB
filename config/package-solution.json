@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "comparable-map-sgmb-client-side-solution",
+    "id": "5694720f-ded9-46d7-9e22-a1f133bc31eb",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "comparable-map-sgmb description"
+      },
+      "longDescription": {
+        "default": "comparable-map-sgmb description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "comparable-map-sgmb Feature",
+        "description": "The feature that activates elements of the comparable-map-sgmb solution.",
+        "id": "60880a00-11c5-4ed6-b13c-d046c8742371",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/comparable-map-sgmb.sppkg"
+  }
+}
