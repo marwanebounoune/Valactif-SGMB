@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "display-actif-sgmb",
+    "libraryId": "5dfea9c2-1426-42d4-aa91-0fa871741fb2",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "DisplayActifSGMB",
+    "solutionShortDescription": "DisplayActifSGMB description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

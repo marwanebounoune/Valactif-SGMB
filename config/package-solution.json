@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "display-actif-sgmb-client-side-solution",
+    "id": "5dfea9c2-1426-42d4-aa91-0fa871741fb2",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "DisplayActifSGMB description"
+      },
+      "longDescription": {
+        "default": "DisplayActifSGMB description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "display-actif-sgmb Feature",
+        "description": "The feature that activates elements of the display-actif-sgmb solution.",
+        "id": "8012d30e-6129-48d7-bd7f-7446c16b5e3b",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/display-actif-sgmb.sppkg"
+  }
+}
