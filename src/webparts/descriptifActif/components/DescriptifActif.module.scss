@@ -1,0 +1,68 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+.descriptifActif {
+    .spanInfo {
+        font-weight: 500;
+        width: 100px;
+        padding: 5px;
+    }
+    .leftbox {
+        float: left;
+        width: 50%;
+        height: 50px;
+    }
+    .rightbox {
+        float: right;
+        width: 50%;
+        height: 50px;
+    }
+    .space {
+        width: 100px;
+    }
+    .DivAffichage {
+        margin: 5px;
+        padding: 5px;
+    }
+    .Divcontainer {
+        display: block;
+        border: 1px dashed #ccc;
+        width: 500px;
+        margin: 0 auto;
+    }
+    .children {
+        display: inline-block;
+        padding: 10px;
+        vertical-align: top;
+    }
+    .children>p>span {
+        vertical-align: middle;
+    }
+    .container {
+        height: 580px;
+        margin: 0px auto;
+    }
+    .row {
+        @include ms-Grid-row;
+        @include ms-fontColor-white;
+        background-color: $ms-color-themeDark;
+        padding: 20px;
+    }
+    .column {
+        @include ms-Grid-col;
+        @include ms-lg10;
+        @include ms-xl8;
+        @include ms-xlPush2;
+        @include ms-lgPush1;
+    }
+    .title {
+        @include ms-font-xl;
+        @include ms-fontColor-white;
+    }
+    .subTitle {
+        @include ms-font-l;
+        @include ms-fontColor-white;
+    }
+    .description {
+        @include ms-font-l;
+        @include ms-fontColor-white;
+    }
+}
