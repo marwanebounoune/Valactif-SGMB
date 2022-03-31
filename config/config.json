@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "display-actif-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/displayActif/DisplayActifWebPart.js",
+          "manifest": "./src/webparts/displayActif/DisplayActifWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DisplayActifWebPartStrings": "lib/webparts/displayActif/loc/{locale}.js"
+  }
+}
