@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "map-sgmb-2",
+    "libraryId": "613056ba-5091-4146-9c2b-f1b92a399e44",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "map-sgmb-2",
+    "solutionShortDescription": "map-sgmb-2 description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

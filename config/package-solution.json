@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "map-sgmb-2-client-side-solution",
+    "id": "613056ba-5091-4146-9c2b-f1b92a399e44",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "map-sgmb-2 description"
+      },
+      "longDescription": {
+        "default": "map-sgmb-2 description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "map-sgmb-2 Feature",
+        "description": "The feature that activates elements of the map-sgmb-2 solution.",
+        "id": "d7c4536c-9cff-4384-90af-4b3774b0ce9a",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/map-sgmb-2.sppkg"
+  }
+}
