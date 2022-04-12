@@ -1,0 +1,16 @@
+{
+    "@microsoft/generator-sharepoint": {
+        "plusBeta": false,
+        "isCreatingSolution": true,
+        "version": "1.14.0",
+        "libraryName": "map-comparables-sgmb",
+        "libraryId": "ef3a0077-ab60-414f-812a-d665198cc7a1",
+        "environment": "spo",
+        "packageManager": "npm",
+        "solutionName": "comparable-map-sgmb",
+        "solutionShortDescription": "comparable-map-sgmb description",
+        "skipFeatureDeployment": true,
+        "isDomainIsolated": false,
+        "componentType": "webpart"
+    }
+}
