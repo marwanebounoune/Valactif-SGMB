@@ -69,7 +69,12 @@ function AfficherActifs (props:any){
                     </tr>
                     <tr>
                         <td><span className={styles.spanInfo}>Evaluation</span></td>
-                        <td><span>{numStr(info.Evaluation, "")} Dhs</span></td> 
+                        {console.log("info.Evaluation", info.Evaluation)}
+                        {info.Evaluation?
+                            <td><span>{numStr(info.Evaluation, "")} Dhs</span></td>
+                        :
+                            <td><span>En cours d'évaluation</span></td>
+                        }
                     </tr>
                     <tr>
                         <td><span className={styles.spanInfo}>Statut</span></td>
@@ -96,4 +101,4 @@ function numStr(a, b) {
       d++;
     }
     return c;
-  }
+}
