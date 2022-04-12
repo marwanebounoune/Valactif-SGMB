@@ -10,8 +10,6 @@ import { siteRelativeUrl, webPartListId, DGI_COEFFICIENT_FILTER, MAX_SCORE, MIN_
 
 export const reducer = (previousValue, currentValue) => previousValue + currentValue;
 
-
-
 export async function AddWebpartToPage2(page:any, ActifDestinationUrl:string, Actif:any){
     //const page = await sp.web.loadClientsidePage(webRelativePagesUrl+NameActif+".aspx");
     const partDefs = await sp.web.getClientsideWebParts();
