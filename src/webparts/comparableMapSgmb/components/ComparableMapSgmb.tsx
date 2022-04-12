@@ -16,7 +16,6 @@ export default class ComparableMapSgmb extends React.Component<IComparableMapSgm
       <div className={ styles.comparableMapSgmb }>
         <div className={ styles.container }>
           <div className={ styles.row }>
-            {console.log("THIS =>", this)}
             <MapContainer context={this.props.ctx} GoogleKey={this.props.description} Reference={this.props.reference}/>
           </div>
         </div>

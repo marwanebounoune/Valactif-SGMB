@@ -6,7 +6,7 @@ import "@pnp/sp/webs";
 import { ClientsideWebpart } from "@pnp/sp/clientside-pages";
 import pnp from "sp-pnp-js";
 import { sp, IFolder, IFileAddResult } from '@pnp/sp/presets/all';
-import { siteRelativeUrl, webPartListId, DGI_COEFFICIENT_FILTER, MAX_SCORE, MIN_SCORE, RATIO, SITUATION_GENERAL_COEFFICIENT, STANDING_APPARTEMENT_COEFFICIENT, STANDING_IMMEUBLE_COEFFICIENT, SURFACE_COEFFICIENT, web } from "./Constants";
+import { siteRelativeUrl, webPartListId, DGI_COEFFICIENT_FILTER, MAX_SCORE, MIN_SCORE, RATIO, SITUATION_GENERAL_COEFFICIENT, STANDING_APPARTEMENT_COEFFICIENT, STANDING_IMMEUBLE_COEFFICIENT, SURFACE_COEFFICIENT } from "./Constants";
 
 export const reducer = (previousValue, currentValue) => previousValue + currentValue;
 
@@ -355,21 +355,23 @@ export async function WindowPopUp(modalTitle:string, url:string, from_list:strin
     var userId =  currentUser.Id;
     // console.log("email: ", userId);
     
-    if(from_list === "l_Valactif"){
-        const credits = await web.lists.getByTitle("l_credits").items.getAll();
-        // console.log("credits: ", credits);
+    if(from_list === "Valactif"){
+        const credits = await sp.web.lists.getByTitle("l_credits").items.getAll();
+        console.log("credits: ", credits);
         var query = function(element) {
-            return element.userId === userId;
+            return element.UserId === userId;
         };
         credit = credits.filter(query);
         // console.log("credit: ", credit);
-        if (credit[0].Cr_x00e9_dit_x0020_journalier === 0){
+        // console.log("modalTitle: ", modalTitle);
+        // console.log("url: ", url);
+        if (credit[0].Cr_x00e9_ditconsultation === 0){
             url_page = "https://valactifcom.sharepoint.com/:u:/s/valactif-solutions/EQS_c-KjvgZDq8dwMNkjA6cBzS1IkFVxDlnYcCpr_ETcyg?e=rvEfZL";
         }
         else{
-            const credit_decrement = await web.lists.getByTitle("l_credits").items.getById(credit[0].Id).update({
+            const credit_decrement = await sp.web.lists.getByTitle("l_credits").items.getById(credit[0].Id).update({
                 
-                Cr_x00e9_dit_x0020_journalier: credit[0].Cr_x00e9_dit_x0020_journalier-1
+                Cr_x00e9_ditconsultation: credit[0].Cr_x00e9_ditconsultation-1
               });
         }
     }
@@ -460,13 +462,13 @@ export function extendDistanceFiltrer(item_dexa:any,item_org:any,start_point:any
     return extendDistanceFiltrer(item_dexa, item_org,start_point, start_dis+250, end_dis, type_de_bien,type_de_ref);//pas 250 m
 }
 export function extendDistanceFiltrer2(item_dexa:any,item_org:any,start_point:any, start_dis:number, end_dis:number, type_de_bien:string,type_de_ref:string[]){
-    console.log("extendDistanceFiltrer2 item_dexa", item_dexa)
-    console.log("extendDistanceFiltrer2 item_org", item_org)
-    console.log("extendDistanceFiltrer2 start_point", start_point)
-    console.log("extendDistanceFiltrer2 start_dis", start_dis)
-    console.log("extendDistanceFiltrer2 end_dis", end_dis)
-    console.log("extendDistanceFiltrer2 type_de_bien", type_de_bien)
-    console.log("extendDistanceFiltrer2 type_de_ref", type_de_ref)
+    // console.log("extendDistanceFiltrer2 item_dexa", item_dexa)
+    // console.log("extendDistanceFiltrer2 item_org", item_org)
+    // console.log("extendDistanceFiltrer2 start_point", start_point)
+    // console.log("extendDistanceFiltrer2 start_dis", start_dis)
+    // console.log("extendDistanceFiltrer2 end_dis", end_dis)
+    // console.log("extendDistanceFiltrer2 type_de_bien", type_de_bien)
+    // console.log("extendDistanceFiltrer2 type_de_ref", type_de_ref)
     var query = function(element) {
         var lat = getLat(element.Latitude_x002d_Longitude);
         var lng = getLng(element.Latitude_x002d_Longitude);
@@ -475,7 +477,7 @@ export function extendDistanceFiltrer2(item_dexa:any,item_org:any,start_point:an
             longitude: lng
         };
         var dis = haversine(start_point, end_point);
-        console.log("element", element)
+        // console.log("element", element)
         
         return element.Typologie_x0020_de_x0020_bien === type_de_bien && element.Type_x0020_de_x0020_R_x00e9_f_x0 === "Vente" && type_de_ref.indexOf(element.Type_x0020_de_x0020_R_x00e9_f_x0)!=-1 && dis <= start_dis/1000;
     };
@@ -501,7 +503,7 @@ export function capitalizeFirstLetter(string) {
 
 export async function get_dgi_zone(lat:number, lng:number) {
     /*const items: any[] = await */
-    await web.lists.getByTitle("l_ref_DGI").items.getAll().then(res=>{
+    await sp.web.lists.getByTitle("l_ref_DGI").items.getAll().then(res=>{
         var query = function(element) {
             return isPointInPolygon(lat, lng, element.Polygone);
         };
@@ -534,7 +536,7 @@ export function EcartType(arr:any){
     }
 }
 export function getItemList(): Promise<any>{
-    return web.lists.getByTitle("l_ref_DGI").items.getAll().then(res => {
+    return sp.web.lists.getByTitle("l_ref_DGI").items.getAll().then(res => {
         // console.log("dgiii: ", res);
         return res;
     });

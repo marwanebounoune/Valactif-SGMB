@@ -17,7 +17,7 @@ function Filtrer (props:IFiltrerProps){
   let [typeDeBien, setTypeDeBien] = React.useState("Résidentiel");
   let [alert, setAlert] = React.useState(false);
   let [alertDgi, setAlertDGi] = React.useState(false);
-  let [ref_from, setRef_from] = React.useState(["l_ref_Dexa", "Actifs"]);
+  let [ref_from, setRef_from] = React.useState(["Valactif", "Actifs"]);
   let lat = getLat(props.latlng);
   let lng = getLng(props.latlng);
   

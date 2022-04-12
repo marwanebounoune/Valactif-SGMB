@@ -153,7 +153,6 @@ function Evaluer (props:IEvaluerProps){
                 
                 var time_end = new Date(Date.now());
                 var s_end =time_end.getSeconds();
-                console.log("time: ", s_end-s_start);
                 if(prix_dexa.length != 0)
                   var prix_evaluer = prix_dexa.reduce(reducer)/prix_dexa.length;
   

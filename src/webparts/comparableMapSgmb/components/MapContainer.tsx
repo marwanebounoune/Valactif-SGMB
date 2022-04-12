@@ -120,7 +120,7 @@ export default function MapContainer(props:IMapContainerProps){
   
   //AnyReactComponent
   const Marker = ({ marker, lat, lng, text}) => <div className={ styles.marker }
-  onClick={()=> {onMarkerClick(text, marker, "l_Valactif");}}
+  onClick={()=> {onMarkerClick(text, marker, "Valactif");}}
   onContextMenu={()=> onMarkerRightClick(marker)}></div>;
 
   const Marker_organisme = ({ marker, lat, lng, text}) => <div className={ styles.markerOrganisme }
@@ -143,7 +143,7 @@ export default function MapContainer(props:IMapContainerProps){
         {/*<div><span className={styles.spanInfo}>Prix Unitaire:</span><span>{parseInt(popupInfo.marker.Prix_unitaire_de_la_reference).toFixed(0)} DH/m²</span></div>*/}
   <br/>      
   <a className={styles.rightFloat} href="#" onClick={(event)=> {
-    event.preventDefault(); WindowPopUp("get info", "https://valactifcom.sharepoint.com/sites/SGMB/Lists/l_ref_Dexa/DispForm.aspx?ID="+popupInfo.marker.Id, "l_Valactif");}}>Voir plus...</a>
+    event.preventDefault(); WindowPopUp("get info", "https://valactifcom.sharepoint.com/sites/SGMB/Lists/l_ref_Dexa/DispForm.aspx?ID="+popupInfo.marker.Id, "Valactif");}}>Voir plus...</a>
 </div>;
 
   const PopupOrganisme = ({ lat, lng}) =>
@@ -274,7 +274,7 @@ export default function MapContainer(props:IMapContainerProps){
           position: myLatlng,
           content:
           "<div style='color:black'>"+
-        " <a target='_blank' href='https://valactifcom.sharepoint.com/sites/SGMB/Lists/l_ref_Dexa/DispForm.aspx?ID="+marker.Id+"'>Ajouter une référence2</a>"
+        " <a target='_blank' href='https://valactifcom.sharepoint.com/sites/SGMB/Lists/Valactif/DispForm.aspx?ID="+marker.Id+"'>Ajouter une référence2</a>"
           +"</div>"
         });
         var m =  new maps.Marker({
@@ -332,8 +332,8 @@ export default function MapContainer(props:IMapContainerProps){
       setPopOut(true);
   }
   async function displayMarker2 (item_dexa:any, item_org:any) {
-    console.log("item_dexa", item_dexa)
-    console.log("item_org", item_org)
+    // console.log("item_dexa", item_dexa)
+    // console.log("item_org", item_org)
     setTypeDeBien("Résidentiel");
     setPopupInfo(null);
     await setDexa_markers(item_dexa);
@@ -394,7 +394,7 @@ export default function MapContainer(props:IMapContainerProps){
           ):<></>
         }
 
-        {popupInfo&&popupInfo.marker&&popupInfo.from_list==="l_Valactif"?
+        {popupInfo&&popupInfo.marker&&popupInfo.from_list==="Valactif"?
           <Popup
           lat={getLat(popupInfo.marker.Latitude_x002d_Longitude)}
           lng={getLng(popupInfo.marker.Latitude_x002d_Longitude)} />:<></>
@@ -415,7 +415,7 @@ export default function MapContainer(props:IMapContainerProps){
       </GoogleMapReact>
       <Stack horizontal>
         <div className={styles.rightFloatBien}>
-          {console.log("props.Reference", props)}
+          {/* {console.log("props.Reference", props)} */}
           <Inspection context={props.context} reference={props.Reference} handlerMesBiens={ async (items_actifs, filterd_list_dexa, filterd_list_org) => {
             await displayActifs(items_actifs);
             await displayMarker2(filterd_list_dexa,filterd_list_org);

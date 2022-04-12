@@ -15,7 +15,7 @@ function Inspection (props:IInspectionProps){
     let [form, setForm] = React.useState({dossier:{},portefeuille:0, type_de_ref:[], ref_dexa_or_organisme:[]});
     let [typeDeBien, setTypeDeBien] = React.useState("Résidentiel");
     let [alert, setAlert] = React.useState(false);
-    let [ref_from, setRef_from] = React.useState(["l_ref_Dexa", "Actifs"]);
+    let [ref_from, setRef_from] = React.useState(["Valactif", "Actifs"]);
     let [popOut, setPopOut] = React.useState(false);
     let [DGI, setDGI] = React.useState(null);
     let [pin_dexa, setPin_dexa] = React.useState([]);
@@ -36,7 +36,7 @@ function Inspection (props:IInspectionProps){
       styles: { main: { maxWidth: 650 } },
     };
     async function _onSubmit(){
-      console.log("TEST")
+      // console.log("TEST")
       let items_dexa: any[] = [];
       let items_org: any[] = [];
       var rest_filterd_list = null;
@@ -45,8 +45,8 @@ function Inspection (props:IInspectionProps){
         return element.Title === props.reference;
       };
       const dossier = dossiers.filter(query);
-      console.log("dossier", dossier)
-      console.log("props.reference", props.reference)
+      // console.log("dossier", dossier)
+      // console.log("props.reference", props.reference)
       const center = {
         lat: getLat(dossier[0].Latitude_x002d_Longitude.toString()),
         lng: getLng(dossier[0].Latitude_x002d_Longitude.toString())
@@ -60,28 +60,28 @@ function Inspection (props:IInspectionProps){
       await ref_from.forEach(async (element, index) => {
         let get_items = await sp.web.lists.getByTitle(element).items.getAll().then(async res=>{
           i++
-          console.log("i", i)
-          console.log("RES FILTRING", res)
+          // console.log("i", i)
+          // console.log("RES FILTRING", res)
           
           //filterd_list = rest_filterd_list.filterd_list;
-          if(element == "l_ref_Dexa"){
+          if(element == "Valactif"){
           // await setPin_dexa(filter);
             //items_dexa = await filter;
             items_dexa = res;
-            console.log("element l_ref_Dexa", items_dexa)
+            // console.log("element Valactif", items_dexa)
           }else{
             //await setPin_org(filter);
             // items_org = await filter;
             items_org=res;
           }
-          console.log("ref_from", ref_from)
+          // console.log("ref_from", ref_from)
           if (i === 2){
-            console.log("OK")
+            // console.log("OK")
             rest_filterd_list = extendDistanceFiltrer2(items_dexa, items_org, start, DISTANCE_START_FILTRAGE, DISTANCE_END_FILTRAGE, "Résidentiel", ["Vente"]);
           }
         })
         .then(async res => {
-          console.log("extendDistanceFiltrer2",rest_filterd_list)
+          // console.log("extendDistanceFiltrer2",rest_filterd_list)
           await props.handlerMesBiens(dossier, rest_filterd_list.filterd_list_dexa, rest_filterd_list.filterd_list_org)
         });
       });

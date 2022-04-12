@@ -91,7 +91,7 @@ function MesBiens (props:IMesBiensProps){
         return element.Portefeuille_Ref.ID == form.portefeuille;
       };
     const filterd_actifs = actifs.filter(query);
-    console.log("filterd_actifs", filterd_actifs)
+    // console.log("filterd_actifs", filterd_actifs)
       
       props.handlerMesBiens(filterd_actifs);
       setForm({...form, portefeuille:form.portefeuille});
