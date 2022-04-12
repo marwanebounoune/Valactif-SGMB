@@ -33,7 +33,7 @@ export const DialogEvaluation: React.FunctionComponent = () => {
       <Dialog hidden={hideDialog} onDismiss={toggleHideDialog} dialogContentProps={dialogContentProps} modalProps={modelProps}
         styles={{main: {selectors: {['@media (min-width: 480px)']: { width: 600, height: 250, minWidth: 500, maxWidth: '1000px'}}}}}
       >
-        <h3>Cette fonctionalite n'est prise en compte dans la version gratuite, pour plus d'information veuiller contacter votre fournisseur.</h3>
+        <h3>Cette fonctionalite n'est pas prise en compte dans la version gratuite, pour plus d'information veuiller contacter votre fournisseur.</h3>
         <br/>
         <h4>E-mail: contact@valactif.com</h4>
       </Dialog>
