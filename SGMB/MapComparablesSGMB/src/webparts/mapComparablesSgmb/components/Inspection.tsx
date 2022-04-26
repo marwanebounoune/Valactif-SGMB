@@ -5,13 +5,16 @@ import { ActionButton, DefaultButton, Dialog, DialogFooter, DialogType, Dropdown
 import * as React from 'react';
 import { DISTANCE_END_FILTRAGE, DISTANCE_START_FILTRAGE, web } from '../Constants';
 import { extendDistanceFiltrer2, getLat, getLng } from '../utils';
-import { ICheckboxInput } from './ICheckboxInput';
-import { IInspectionProps } from './IInspectionProps';
-import styles from './MapComparablesSgmb.module.scss';
 import { sp } from "@pnp/sp/presets/all";
 
+interface IInspectionProps {
+  buttonTitle:string;
+  reference: string;
+  context:any;
+  handlerMesBiens({},{},{}):any;
+}
 
-function Inspection (props:IInspectionProps){
+export default function Inspection (props:IInspectionProps){
     let [form, setForm] = React.useState({dossier:{},portefeuille:0, type_de_ref:[], ref_dexa_or_organisme:[]});
     let [typeDeBien, setTypeDeBien] = React.useState("Résidentiel");
     let [alert, setAlert] = React.useState(false);
@@ -121,5 +124,5 @@ function Inspection (props:IInspectionProps){
       </div>
     );
 }
-export default Inspection;
+
 
