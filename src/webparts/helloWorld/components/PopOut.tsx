@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { EcartType, Mediane, Prix_unitaire_max, Prix_unitaire_min, Prix_unitaire_moyen } from '../utils';
-import { IPopOutProps } from './IPopOutProps';
+
+export interface IPopOutProps {
+  //marker: any;
+  evaluation:any;
+}
 
 function PopOut (props:IPopOutProps) {
   let prix_unit:any = Get_all_Prix_unit();

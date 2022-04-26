@@ -3,10 +3,12 @@ import { DefaultButton, Dialog, DialogFooter, DialogType, Dropdown, IDropdownOpt
 import * as React from 'react';
 import { createFolder, CreatePage } from "../utils";
 import styles from './HelloWorld.module.scss';
-import { IAddActifComponentsProps } from "./IAddActifComponentsProps";
 import { sp } from "@pnp/sp/presets/all";
 import { DialogCredit } from './DialogCredit';
 
+export interface IAddActifComponentsProps {
+  buttonTitle: string;
+}
 
 
 export default function AddActifComponents (props:IAddActifComponentsProps){

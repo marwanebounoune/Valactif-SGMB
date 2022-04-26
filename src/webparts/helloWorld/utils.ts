@@ -10,7 +10,7 @@ export const reducer = (previousValue, currentValue) => previousValue + currentV
 export async function AddWebpartToPage2(page:any, ActifDestinationUrl:string, Actif:any){
     //const page = await sp.web.loadClientsidePage(webRelativePagesUrl+NameActif+".aspx");
     const partDefs = await sp.web.getClientsideWebParts();
-    // console.log("partDefs", partDefs);
+    console.log("partDefs", partDefs);
     const partDef = partDefs.filter(c => c.Id === webPartListId);
     /* section du page */
     const section_1 = page.addSection();
@@ -39,7 +39,7 @@ export async function AddWebpartToPage2(page:any, ActifDestinationUrl:string, Ac
 
     const section_4 = page.addSection();
     const column_4_1 = section_4.addColumn(6);
-    const column_5_2 = section_4.addColumn(6);
+    const column_4_2 = section_4.addColumn(6);
 
 
     const partDefDivider = partDefs.filter(c => c.Id ===  "2161a1c6-db61-4731-b97c-3cdb303f7cbb");
@@ -208,6 +208,18 @@ export async function AddWebpartToPage2(page:any, ActifDestinationUrl:string, Ac
         reference: Actif.Title
     });
     column_4_1.addControl(part_map_comparables);
+    /*---------Charts comparables--------------5621265B-7E03-4705-8AB5-EB790BCBF48F----------- 5621265b-7e03-4705-8ab5-eb790bcbf48f------- */
+    const partDefChartComparable = partDefs.filter(c => c.Id ===  "{75EF4107-C271-46D2-9BF7-C89D3F1A2EF0}");
+    if (partDefChartComparable.length < 1) {
+        throw new Error("Could not find the web part MAP COMPARABLES");
+    }
+    const part_chart_comparables = ClientsideWebpart.fromComponentDef(partDefChartComparable[0]);
+    // console.log("part_chart_comparables", part_chart_comparables)
+    part_chart_comparables.setProperties({
+        title: "Informations générales",
+        description: Actif.Title
+    });
+    column_4_2.addControl(part_chart_comparables);
     /*---------------------Save----------------------------------- */
     await page.save();
 }

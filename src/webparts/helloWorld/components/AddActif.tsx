@@ -4,7 +4,6 @@ import "@pnp/sp/webs";
 import { ActionButton, TextField, DefaultButton, Dialog, DialogFooter, DialogType, Dropdown, IDropdownOption, IDropdownStyles, Label, Panel, PrimaryButton, Stack } from 'office-ui-fabric-react';
 import * as React from 'react';
 import { ICheckboxInput } from './ICheckboxInput';
-import { IAddActifProps } from "./IAddActif";
 import styles from './HelloWorld.module.scss';
 import { graph } from "@pnp/graph";
 import "@pnp/graph/users";
@@ -14,6 +13,10 @@ import "@pnp/sp/webs";
 import "@pnp/sp/site-users/web";
 import { createFolder, CreatePage } from "../utils";
 import { DialogCredit } from './DialogCredit';
+
+interface IAddActifProps {
+    buttonTitle: string;
+}
 
 function AddActif (props:IAddActifProps){
     let [isOpen, setIsOpen] = React.useState(false);
@@ -192,22 +195,22 @@ function AddActif (props:IAddActifProps){
             {/*<a className={styles.Pointer} onClick={() => setIsOpen(true)}>{props.buttonTitle}</a>*/}
             <ActionButton iconProps={{iconName: 'Add'}} text={props.buttonTitle} onClick={() => setIsOpen(true)}/>
             <Panel isOpen={isOpen} onDismiss={()=> setIsOpen(false)} headerText="Information sur l'actif" closeButtonAriaLabel="Close">
-            <Stack tokens={{childrenGap:10}}>
-                <Dropdown placeholder="Selectionner la typologie de l'expertise" label="Type de l'expertise" options={options_type_expertise} styles={dropdownStyles} defaultSelectedKey={form.type_expertise} onChange={onChange_type_expertise} />
-                <TextField placeholder="Entrer la référence du dossier" label="Référence" onChange={(e) => setForm({...form, denomination:(e.target as HTMLInputElement).value}) }/>
-                <TextField placeholder="Entrer la latitude et la longitude de l'actif" label="Latitude-Longitude" onChange={(e) => setForm({...form, latLng:(e.target as HTMLInputElement).value}) }/>
-                <Dropdown  placeholder="Selectionner le client" label="Clients" options={options_clients} styles={dropdownStyles} defaultSelectedKey={form.client} onChange={onChange_client} />
-                <Dropdown  placeholder="Selectionner la ville" label="Villes" options={options_villes} styles={dropdownStyles} defaultSelectedKey={form.ville} onChange={onChange_ville} />
-                <TextField placeholder="Entrer l'adresse de l'actif" label="Adresse" onChange={(e) => setForm({...form, adresse:(e.target as HTMLInputElement).value}) }/>
-                <Dropdown placeholder="Selectionner la typologie de bien" label="Type de bien" options={options_type_de_bien} styles={dropdownStyles} defaultSelectedKey={form.type_de_bien} onChange={onChange_type_de_bien} />
-                <TextField placeholder="Entrer le(s) titre(s) foncier" label="TF(s)" onChange={(e) => setForm({...form, tf:(e.target as HTMLInputElement).value}) }/>
-                <TextField placeholder="Surface titrée (m2)" label="Surface titrée (m2)" onChange={(e) => setForm({...form, surface_titree:parseFloat((e.target as HTMLInputElement).value)}) }/>
-                <TextField placeholder="Entrer le crédit demandé (Dhs)" label="Crédit demandé (Dhs)" onChange={(e) => setForm({...form, credit_demande:parseFloat((e.target as HTMLInputElement).value)}) }/>
-                <Stack horizontal horizontalAlign="end" tokens={{childrenGap:30}}>
-                    <PrimaryButton text="Ajouter" onClick={async() => await _onSubmitAddAcfit()}></PrimaryButton>
-                    <DefaultButton text="Cancel" onClick={() => setIsOpen(false)}></DefaultButton>
+                <Stack tokens={{childrenGap:10}}>
+                    <Dropdown placeholder="Selectionner la typologie de l'expertise" label="Type de l'expertise" options={options_type_expertise} styles={dropdownStyles} defaultSelectedKey={form.type_expertise} onChange={onChange_type_expertise} />
+                    <TextField placeholder="Entrer la référence du dossier" label="Référence" onChange={(e) => setForm({...form, denomination:(e.target as HTMLInputElement).value}) }/>
+                    <TextField placeholder="Entrer la latitude et la longitude de l'actif" label="Latitude-Longitude" onChange={(e) => setForm({...form, latLng:(e.target as HTMLInputElement).value}) }/>
+                    <Dropdown  placeholder="Selectionner le client" label="Clients" options={options_clients} styles={dropdownStyles} defaultSelectedKey={form.client} onChange={onChange_client} />
+                    <Dropdown  placeholder="Selectionner la ville" label="Villes" options={options_villes} styles={dropdownStyles} defaultSelectedKey={form.ville} onChange={onChange_ville} />
+                    <TextField placeholder="Entrer l'adresse de l'actif" label="Adresse" onChange={(e) => setForm({...form, adresse:(e.target as HTMLInputElement).value}) }/>
+                    <Dropdown placeholder="Selectionner la typologie de bien" label="Type de bien" options={options_type_de_bien} styles={dropdownStyles} defaultSelectedKey={form.type_de_bien} onChange={onChange_type_de_bien} />
+                    <TextField placeholder="Entrer le(s) titre(s) foncier" label="TF(s)" onChange={(e) => setForm({...form, tf:(e.target as HTMLInputElement).value}) }/>
+                    <TextField placeholder="Surface titrée (m2)" label="Surface titrée (m2)" onChange={(e) => setForm({...form, surface_titree:parseFloat((e.target as HTMLInputElement).value)}) }/>
+                    <TextField placeholder="Entrer le crédit demandé (Dhs)" label="Crédit demandé (Dhs)" onChange={(e) => setForm({...form, credit_demande:parseFloat((e.target as HTMLInputElement).value)}) }/>
+                    <Stack horizontal horizontalAlign="end" tokens={{childrenGap:30}}>
+                        <PrimaryButton text="Ajouter" onClick={async() => await _onSubmitAddAcfit()}></PrimaryButton>
+                        <DefaultButton text="Cancel" onClick={() => setIsOpen(false)}></DefaultButton>
+                    </Stack>
                 </Stack>
-            </Stack>
             </Panel>
         </div>
     );

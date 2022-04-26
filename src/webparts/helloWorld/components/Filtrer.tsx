@@ -6,10 +6,14 @@ import * as React from 'react';
 import { DISTANCE_END_FILTRAGE, DISTANCE_START_FILTRAGE } from '../Constants';
 import { extendDistanceFiltrer2, getLat, getLng } from '../utils';
 import { ICheckboxInput } from './ICheckboxInput';
-import { IFiltrerProps } from './IFiltrerProps';
-import styles from './HelloWorld.module.scss';
 import { sp } from "@pnp/sp/presets/all";
 
+export interface IFiltrerProps {
+  buttonTitle: string;
+  latlng:string;
+  dgi:any;
+  handleFilter({},{},{},{},{}):any;
+}
 
 function Filtrer (props:IFiltrerProps){
   let [isOpen, setIsOpen] = React.useState(false);

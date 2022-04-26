@@ -5,7 +5,6 @@ import { ActionButton, Checkbox, DefaultButton, Dialog, DialogFooter, DialogType
 import * as React from 'react';
 import { web } from '../Constants';
 import { ICheckboxInput } from './ICheckboxInput';
-import { IMesBiensProps } from "./IMesBiensProps";
 import styles from './HelloWorld.module.scss';
 import { graph } from "@pnp/graph";
 import "@pnp/graph/users";
@@ -13,6 +12,11 @@ import "@pnp/graph/users";
 import { sp } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/site-users/web";
+
+export interface IMesBiensProps {
+  buttonTitle:string;
+  handlerMesBiens({}):any;
+}
 
 function MesBiens (props:IMesBiensProps){
   let [isOpen, setIsOpen] = React.useState(false);

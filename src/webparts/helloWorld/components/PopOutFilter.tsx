@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { EcartType, Mediane, Prix_unitaire_max, Prix_unitaire_min, Prix_unitaire_moyen } from '../utils';
-import { DialogHorsZone } from './DialogHorsZone';
-import { IPopOutFilter } from './IPopOutFilter';
+
+export interface IPopOutFilter {
+  //marker: any;
+  Information:any;
+}
 
 function PopOutFilter (props:IPopOutFilter) {
   let prix_unit:any = Get_all_Prix_unit();

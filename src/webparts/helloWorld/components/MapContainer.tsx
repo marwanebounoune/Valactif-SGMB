@@ -12,11 +12,14 @@ import { DialogAddRefOrganisme } from './DialogAddRefOrganisme';
 import { DialogEvaluation } from './DialogEvaluation';
 import Evaluer from './Evaluer';
 import Filtrer from './Filtrer';
-import { IMapContainerProps } from './IMapContainerProps';
 import styles from './HelloWorld.module.scss';
 import PopOutFilter from './PopOutFilter';
 import { sp } from "@pnp/sp/presets/all";
 import { DialogHorsZone } from './DialogHorsZone';
+
+export interface IMapContainerProps {
+  GoogleKey:string;
+}
 
 export default function MapContainer(props:IMapContainerProps){
   let [popupMarkerActif, setPopupMarkerActif]= React.useState({});
@@ -227,26 +230,26 @@ export default function MapContainer(props:IMapContainerProps){
     input = useRef(null);
     const searchBox = useRef(null);
     useEffect(() => {
-        if (!searchBox.current && maps && map) {
-            searchBox.current = new maps.places.SearchBox(input.current);
-            maps.event.addListener(searchBox.current, 'places_changed', function() {
-            var places = searchBox.current.getPlaces();
-            places.forEach(place => {
-              var myLatlng = new maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng());
-              map.setCenter(myLatlng);
-              var marker = new maps.Marker({
-                position: myLatlng,
-                map:map
-            });
+      if (!searchBox.current && maps && map) {
+        searchBox.current = new maps.places.SearchBox(input.current);
+        maps.event.addListener(searchBox.current, 'places_changed', function() {
+          var places = searchBox.current.getPlaces();
+          places.forEach(place => {
+            var myLatlng = new maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng());
+            map.setCenter(myLatlng);
+            var marker = new maps.Marker({
+              position: myLatlng,
+              map:map
             });
           });
+        });
+      }
+      return () => {
+        if (maps) {
+          searchBox.current = null;
+          maps.event.clearInstanceListeners(searchBox);
         }
-        return () => {
-            if (maps) {
-                searchBox.current = null;
-                maps.event.clearInstanceListeners(searchBox);
-            }
-        };
+      };
     });
     let inputSearch = <div key={"inputSearch"}><input ref={input} placeholder={placeholder} className={styles.googleMapSearchBox} type="text" /></div>;
     return inputSearch;

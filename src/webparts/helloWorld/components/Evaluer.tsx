@@ -1,21 +1,21 @@
 import "@pnp/sp/items";
 import "@pnp/sp/lists";
 import "@pnp/sp/webs";
-import { fromPairs } from "lodash";
 import { ActionButton, DefaultButton, Dialog, DialogFooter, DialogType, Dropdown, IDropdownOption, IDropdownStyles, Panel, PrimaryButton, Stack, TextField } from 'office-ui-fabric-react';
-//import { Panel } from '@microsoft/office-ui-fabric-react';
 import * as React from 'react';
 import { DISTANCE_END_EVALUATION, DISTANCE_START_EVALUATION } from '../Constants';
 import { calculated_score, estimated_price, extendDistanceEvaluer2, getLat, getLng, reducer } from '../utils';
-import { IEvaluerProps } from './IEvaluerProps';
-import styles from './HelloWorld.module.scss';
 import PopOut from './PopOut';
 import "@pnp/sp/webs";
-import { ClientsideWebpart } from "@pnp/sp/clientside-pages";
-import pnp from "sp-pnp-js";
-import { sp, IFolder, IFileAddResult } from '@pnp/sp/presets/all';
+import { sp } from '@pnp/sp/presets/all';
 import { DialogHorsZone } from './DialogHorsZone';
 
+export interface IEvaluerProps {
+  buttonTitle: string;
+  latlng:string;
+  dgi:any;
+  handleEvaluer({}):any;
+}
 
 function Evaluer (props:IEvaluerProps){
   let [isOpen, setIsOpen] = React.useState(false);
