@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "generer-actif-command-set": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/genererActif/GenererActifCommandSet.js",
+          "manifest": "./src/extensions/genererActif/GenererActifCommandSet.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "GenererActifCommandSetStrings": "lib/extensions/genererActif/loc/{locale}.js"
+  }
+}

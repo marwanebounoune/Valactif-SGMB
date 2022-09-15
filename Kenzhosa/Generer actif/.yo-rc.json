@@ -1,0 +1,17 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "generer-actif",
+    "libraryId": "8d1537df-bc5d-4271-917e-453031bbe196",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "generer-actif",
+    "solutionShortDescription": "generer-actif description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ListViewCommandSet"
+  }
+}
